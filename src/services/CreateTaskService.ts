@@ -13,8 +13,9 @@ class CreateTaskService {
     if (!title) {
         throw new Error("cannot create a null task");
     }
+    console.log(`title: ${title} check: ${check}`);
     
-    const task = await taskRepositories.create({title, check:false});
+    const task = taskRepositories.create({title, check:false});
 
     await taskRepositories.save(task);
 

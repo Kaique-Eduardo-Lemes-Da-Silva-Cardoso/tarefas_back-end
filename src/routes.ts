@@ -4,7 +4,7 @@ const router = Router();
 const createTaskController = new CreateTaskController();
 
 
-router.post("/createTask", createTaskController.handle);
+router.post("/CreateTask", createTaskController.handle);
 
 
 export{router};
