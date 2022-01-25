@@ -1,7 +1,26 @@
-import express from "express";
+import express,{Request,Response,NextFunction} from "express";
+import "reflect-metadata";
+import "express-async-errors";
+import "./database";
 import{router}from "./routes"
 
 const app = express();
+
+app.use(
+    (err: Error, request: Request, response: Response, next: NextFunction) => {
+      if (err instanceof Error) {
+          console.log(`ERRO: ${err.message}`)
+        return response.status(400).json({
+          error: err.message,
+        });
+      }
+  
+      return response.status(500).json({
+        status: "error",
+        message: "Internal Server Error",
+      });
+    }
+  );
 
 app.use(express.json());
 app.use(router);
