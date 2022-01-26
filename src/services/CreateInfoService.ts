@@ -7,7 +7,7 @@ interface IInfo {
 class CreateInfoService {
   async execute({ text }: IInfo) {
     const infoRepositories = getCustomRepository(InfoRepositories);
-
+console.log(text);
     if (!text) {
       throw new Error("Cannot create the info");
     }

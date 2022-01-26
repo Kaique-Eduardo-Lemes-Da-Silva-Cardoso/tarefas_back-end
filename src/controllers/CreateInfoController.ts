@@ -5,10 +5,10 @@ class CreateInfoController{
     async handle(resquest:Request,response:Response){
         
     const{text}=resquest.body;
-     
+     console.log(`controller ${text}`);
     const createInfoController = new CreateInfoService();
 
-    const info = createInfoController.execute(text);
+    const info = createInfoController.execute({text});
 
     return response.json(info);
 
