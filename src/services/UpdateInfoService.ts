@@ -13,13 +13,13 @@ class UpdateInfoService {
 
     if (texto.text === text) {
       return text;
+    } else {
+      texto.text = text;
     }
-    texto.text = text;
 
     await infoRepositories.save(texto);
 
     return texto;
-
   }
 }
 export { UpdateInfoService };

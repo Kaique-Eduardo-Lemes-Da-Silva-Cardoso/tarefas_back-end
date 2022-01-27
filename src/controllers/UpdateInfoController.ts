@@ -8,8 +8,9 @@ const{id,text} = resquest.body;
 const updateInfoService = new UpdateInfoService();
 const update = await updateInfoService.execute({id,text});
 
-return response.json({"id":update.id,"text":update.text });
-
+return response
+.status(200)
+.send({message:`Updated  text: ${update.text}`});
 }
 }
 export{UpdateInfoController};

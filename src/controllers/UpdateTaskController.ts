@@ -10,7 +10,7 @@ class UpdateTaskController {
     console.log(uptate);
     return response
       .status(200)
-      .send(`Updated Title: ${uptate.title} check: ${uptate.check}`);
+      .send({message:`Updated Title: ${uptate.title} check: ${uptate.check}`});
   }
 }
 export { UpdateTaskController };
