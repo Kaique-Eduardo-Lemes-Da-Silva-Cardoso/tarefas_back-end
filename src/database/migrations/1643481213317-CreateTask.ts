@@ -9,33 +9,48 @@ export class CreateTask1643147465638 implements MigrationInterface {
           {
             name: "id",
             type: "uuid",
-            isPrimary: true
+            isPrimary: true,
           },
           {
             name: "title",
-            type: "varchar"
+            type: "varchar",
           },
           {
             name: "check",
             type: "boolean",
-            default: false
+            default: false,
+          },
+          {
+            name: "infoId",
+            type: "uuid",
           },
           {
             name: "created_at",
             type: "timestamp",
-            default: "now()"
+            default: "now()",
           },
           {
             name: "updated_at",
             type: "timestamp",
-            default: "now()"
-          }
-        ]
+            default: "now()",
+          },
+        ],
+        foreignKeys: [
+          {
+            name: "FkInfo",
+            columnNames: ["infoId"],
+            referencedTableName: "info",
+            referencedColumnNames: ["id"],
+            onDelete: "CASCADE",
+          },
+        ],
       })
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-      await queryRunner.dropTable("task");
+    await queryRunner.dropTable("task");
+    //await queryRunner.dropForeignKey('task',"FkInfo");
+    
   }
 }

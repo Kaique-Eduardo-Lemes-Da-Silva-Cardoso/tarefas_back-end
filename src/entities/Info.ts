@@ -22,7 +22,7 @@ class Info {
 
   constructor() {
     if (!this.id) {
-      this.id = uuid();
+      this.id =  uuid();
     }
   }
 }
