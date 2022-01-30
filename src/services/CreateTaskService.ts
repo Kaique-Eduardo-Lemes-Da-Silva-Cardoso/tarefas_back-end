@@ -7,7 +7,7 @@ interface IITCreate {
  
 }
 
-class CreateInfoAndTaskService {
+class CreateTaskService {
   async Create({ title }: IITCreate) {
     const infoRepositories = getCustomRepository(InfoRepositories);
     const taskRepositories = getCustomRepository(TaskRepositories);
@@ -31,4 +31,4 @@ class CreateInfoAndTaskService {
     return task;
   }
 }
-export { CreateInfoAndTaskService };
+export { CreateTaskService };

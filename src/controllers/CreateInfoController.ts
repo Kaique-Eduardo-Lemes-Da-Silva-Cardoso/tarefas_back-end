@@ -1,4 +1,4 @@
-import { CreateInfoService } from "@services/CreateInfoService";
+import { CreateInfoService } from "@services/keep/CreateInfoService";
 import { Request, Response } from "express";
 
 class CreateInfoController{
