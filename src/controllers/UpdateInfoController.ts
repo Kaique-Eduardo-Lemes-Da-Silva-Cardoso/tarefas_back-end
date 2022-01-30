@@ -3,14 +3,14 @@ import { Request, Response } from "express";
 
 class UpdateInfoController{
 async handle(resquest:Request,response:Response){
-const{id,text} = resquest.body;
+const{taskId,text} = resquest.body;
 
 const updateInfoService = new UpdateInfoService();
-const update = await updateInfoService.execute({id,text});
+const update = await updateInfoService.execute({taskId,text});
 
 return response
 .status(200)
-.send({message:`Updated  text: ${update.text}`});
+.send({Updated:`text: ${update}`});
 }
 }
 export{UpdateInfoController};

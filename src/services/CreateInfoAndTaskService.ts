@@ -23,6 +23,7 @@ class CreateInfoAndTaskService {
     const task = taskRepositories.create({
       title,
       infoId: info[0].id,
+      
       check: false,
     });
     await taskRepositories.save(task);

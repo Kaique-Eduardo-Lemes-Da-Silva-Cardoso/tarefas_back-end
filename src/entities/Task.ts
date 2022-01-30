@@ -25,8 +25,8 @@ class Task {
   @Column()
   infoId: string;
 
-  @JoinColumn({ name:"infoId"})
-  @OneToOne(() => Info)
+  @JoinColumn({ name:"infoId",referencedColumnName:"id"})
+  @OneToOne(() => Info,{onDelete:"CASCADE"})
   info: Info;
 
   @CreateDateColumn()
