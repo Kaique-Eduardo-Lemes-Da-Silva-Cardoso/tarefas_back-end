@@ -2,16 +2,16 @@ import { InfoRepositories } from "@repositories/InfoRepositories";
 import { TaskRepositories } from "@repositories/TaskRepositories";
 import { getCustomRepository } from "typeorm";
 interface IUpdateInfo {
-  taskId: string;
+  infoId: string;
   text: string;
 }
 
 class UpdateInfoService {
-  async execute({ taskId, text }: IUpdateInfo) {
+  async execute({ infoId, text }: IUpdateInfo) {
     const infoRepositories = getCustomRepository(InfoRepositories);
-    const taskRepositories = getCustomRepository(TaskRepositories);
+    //const taskRepositories = getCustomRepository(TaskRepositories);
 
-    const { infoId } = await taskRepositories.findOne(taskId);
+   // const { infoId } = await taskRepositories.findOne(infoId);
 
     const texto = await infoRepositories.findOne({ id: infoId });
     console.log(texto);

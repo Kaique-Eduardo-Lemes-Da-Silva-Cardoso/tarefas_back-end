@@ -3,10 +3,10 @@ import { Request, Response } from "express";
 
 class UpdateInfoController{
 async handle(resquest:Request,response:Response){
-const{taskId,text} = resquest.body;
+const{infoId,text} = resquest.body;
 
 const updateInfoService = new UpdateInfoService();
-const update = await updateInfoService.execute({taskId,text});
+const update = await updateInfoService.execute({infoId,text});
 
 return response
 .status(200)
